@@ -1,3 +1,5 @@
+import ResultNode from "./resultNode";
+
 const ResultComponent = ({searchResult}) => {
     let nounArray =[];
     let adjectiveArray =[];
@@ -40,21 +42,21 @@ return(
         {nounArray.length ?
             <div>
                 <h3>Noun:</h3>
-                <DefinitionsArray array={nounArray} word={searchResult[0].data.word}type='noun' />
+                <ResultNode array={nounArray} word={searchResult[0].data.word}type='noun' />
             </div>
         : null}
 
         {verbArray.length ?
             <div>
                 <h3>Verb:</h3>
-                <DefinitionsArray array={verbArray} word={searchResult[0].data.word} type='verb' />
+                <ResultNode array={verbArray} word={searchResult[0].data.word} type='verb' />
             </div>
         : null}
 
         {adjectiveArray.length ?
             <div>
                 <h3>Adjective:</h3>
-                <DefinitionsArray array={adjectiveArray}word={searchResult[0].data.word}type='adjective' />
+                <ResultNode array={adjectiveArray}word={searchResult[0].data.word}type='adjective' />
             </div>
         : null}
         </>
