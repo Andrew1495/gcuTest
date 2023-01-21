@@ -1,6 +1,6 @@
 import ResultNode from "./resultNode";
 
-const ResultComponent = ({searchResult}) => {
+const ResultComponent = ({searchResult, addFavourite}) => {
     let nounArray =[];
     let adjectiveArray =[];
     let verbArray =[];
@@ -42,21 +42,21 @@ return(
         {nounArray.length ?
             <div>
                 <h3>Noun:</h3>
-                <ResultNode array={nounArray} word={searchResult[0].data.word}type='noun' />
+                <ResultNode array={nounArray} word={searchResult[0].data.word}type='noun' addFavourite={addFavourite} />
             </div>
         : null}
 
         {verbArray.length ?
             <div>
                 <h3>Verb:</h3>
-                <ResultNode array={verbArray} word={searchResult[0].data.word} type='verb' />
+                <ResultNode array={verbArray} word={searchResult[0].data.word} type='verb' addFavourite={addFavourite} />
             </div>
         : null}
 
         {adjectiveArray.length ?
             <div>
                 <h3>Adjective:</h3>
-                <ResultNode array={adjectiveArray}word={searchResult[0].data.word}type='adjective' />
+                <ResultNode array={adjectiveArray}word={searchResult[0].data.word}type='adjective' addFavourite={addFavourite} />
             </div>
         : null}
         </>

@@ -8,7 +8,7 @@ const SearchComponent = ({keyword, onChange, onSubmit}) =>{
             placeholder='search defintion'
             onChange={(e) => onChange(e.target.value)}
             />
-            <input type="submit" value="Search" id="Search"/>
+            <input classname="submit" type="submit" value="Search" id="Search"/>
         </form>
     );
     

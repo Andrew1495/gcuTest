@@ -1,0 +1,44 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+h1{
+  font-size: 5rem;
+}
+
+input{
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.error{
+  font-size: 1rem;
+  color: red;
+  text-align: center;
+}
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.result{
+  min-width: 50%;
+}
+
+.favourites{
+  min-width: 50%;
+}

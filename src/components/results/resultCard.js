@@ -1,10 +1,13 @@
-const ResultCard = ({def, type,word}) => {
+const ResultCard = ({def, type, word, addFavourite}) => {
   
-    
+    const handleClick = () => {
+        addFavourite(type,def,word)
+    }
     
     return (
     <>
         <p>{def}</p>
+        <button onClick={handleClick} value={def}>Favourite</button>
     </>
     
     
@@ -12,4 +15,4 @@ const ResultCard = ({def, type,word}) => {
     
     }
     
-    export default ResultCard;   
+export default ResultCard;   
