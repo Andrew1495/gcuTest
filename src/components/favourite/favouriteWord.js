@@ -11,7 +11,7 @@ return(
 
     <>
         <h3>
-            {word}
+            {word}:
         </h3>
 
         <ul>

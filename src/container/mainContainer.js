@@ -106,27 +106,33 @@ const removeFavourite = (i,j)=>{
         <div className='header'>
             
             <div className='search'>
-                    <h1>Words</h1>
+                    <h1>Words.</h1>
                     <SearchComponent keyword={keyword} onChange={updateKeyword} onSubmit={searchDefintion}/>
                     {error ? <p className='error'>Check spelling of word</p> : null}
             </div>
         </div>
 
             <div className='flex-container'>
-                { searchResult?
-                <div className='results'>
-                    <h2>Definitions</h2>
-                    <ResultComponent searchResult = {searchResult} addFavourite={addFavourite} /> 
-                </div>
-                : null }
 
 
-                {favouriteList.length ?
-                <div className='favourites'>
-                    <h2>Favourites</h2>
-                    <FavouriteComponent favouriteList={favouriteList} removeFavourite={removeFavourite}/>
+                <div className='display'>
+                    { searchResult?
+                    <div>
+                        <h2>Definitions</h2>
+                        <ResultComponent searchResult = {searchResult} addFavourite={addFavourite} /> 
+                    </div>
+                    : null }
                 </div>
-                : null}
+
+                <div className='display'>
+                
+                    {favouriteList.length ?
+                    <div>
+                        <h2>Favourites</h2>
+                        <FavouriteComponent favouriteList={favouriteList} removeFavourite={removeFavourite}/>
+                    </div>
+                    : null }
+                </div>
             </div>
         </>
 

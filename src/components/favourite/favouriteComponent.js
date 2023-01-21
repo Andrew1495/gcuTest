@@ -8,9 +8,10 @@ const FavouriteComponent = ({favouriteList , removeFavourite}) => {
     })
  
      return(
-         <ul>
+        
+        <div>
              {favouriteMapped}
-         </ul>
+        </div>
      )
  
  }

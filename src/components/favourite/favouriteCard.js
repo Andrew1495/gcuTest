@@ -8,7 +8,7 @@ return(
 
 
     <>
-    <p>{type}</p>
+    <p>Type: {type}</p> 
     <p>{defintion}</p>
     <button onClick={handleClick}>Remove</button>
     
