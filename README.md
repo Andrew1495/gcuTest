@@ -19,7 +19,7 @@ Note: This setup tutorial assumes that you already have installed a package mana
   
 Once the download has ended, move into the directory named gcu_tech_test by running the following command:
 
-``` cd gcu_tech_test ``` 
+``` cd gcuTest ``` 
   
 Now to install all the modules for the client, run this command:
 
