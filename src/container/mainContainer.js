@@ -14,16 +14,17 @@ const MainContainer = () => {
 
     // sets favouriteList from local storage
     useEffect(() => {
-        // localStorage.clear()      
+        // localStorage.clear() 
         const favList = JSON.parse(localStorage.getItem('favouriteList'));
-        if (!favList) {
-            setFavouriteList([])
+        if(favList){
+            setFavouriteList(favList)
         }
         // had problem deleting last entry in favList
-        else if (favList.length === 1 && favList[0].defintions.length === 0) {
+        if(favList && favList.length === 1 && favList[0].defintions.length === 0) {
          setFavouriteList([])
-        }else if(favList){
-            setFavouriteList(favList)
+        }
+        if(!favList){
+            setFavouriteList([])
         }
       }, []);
 
@@ -50,6 +51,9 @@ const searchDefintion = (e) =>{
 
 })
 }
+
+
+
 
 // handles adding defintion to favList, sorted by word and no duplicate definitions
 const addFavourite = (type ,def, word ) => {
@@ -81,10 +85,15 @@ const addFavourite = (type ,def, word ) => {
         
     }
    
+    
    
     setFavouriteList(arrayOfFavs)
-    localStorage.setItem('favouriteList',JSON.stringify(favouriteList));
+    localStorage.setItem('favouriteList',JSON.stringify(favouriteList))
 }
+
+
+
+
 
 
 // doesn't remove the last entry fixed for now through use effect
@@ -116,21 +125,16 @@ const removeFavourite = (i,j)=>{
 
 
                 <div className='display'>
+                <h2>Definitions</h2>
                     { searchResult?
-                    <div>
-                        <h2>Definitions</h2>
-                        <ResultComponent searchResult = {searchResult} addFavourite={addFavourite} /> 
-                    </div>
+                        <ResultComponent searchResult = {searchResult} addFavourite={addFavourite} />
                     : null }
                 </div>
 
                 <div className='display'>
-                
+                <h2>Favourites</h2>
                     {favouriteList.length ?
-                    <div>
-                        <h2>Favourites</h2>
                         <FavouriteComponent favouriteList={favouriteList} removeFavourite={removeFavourite}/>
-                    </div>
                     : null }
                 </div>
             </div>

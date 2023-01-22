@@ -65,4 +65,5 @@ button{
   padding: 1rem;
   border-radius:4%;
   min-width: 50%;
+  min-height: 50vh;
 }
