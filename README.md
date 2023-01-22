@@ -14,7 +14,7 @@ Note: This setup tutorial assumes that you already have installed a package mana
       ``` git clone git@github.com:Andrew1495/gcuTest.git``` 
   
   https code
-      ``` https://github.com/Andrew1495/gcuTest.git```
+      ``` git clone https://github.com/Andrew1495/gcuTest.git```
   
   
 Once the download has ended, move into the directory named gcu_tech_test by running the following command:
