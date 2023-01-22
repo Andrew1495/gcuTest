@@ -10,24 +10,25 @@ const MainContainer = () => {
     const [keyword, setKeyword] = useState();
     const [searchResult, setSearchResult] = useState();
     const [error, setError] = useState(false)
-    const [favouriteList, setFavouriteList] = useState([])
+    const [favouriteList, setFavouriteList] = useState(() => {
+         const localList = window.localStorage.getItem('favouriteList');
+    return localList !== null
+      ? JSON.parse(localList)
+      :[];
+  });
 
-    // sets favouriteList from local storage
+
     useEffect(() => {
-        // localStorage.clear() 
-        const favList = JSON.parse(localStorage.getItem('favouriteList'));
-        if(favList){
-            setFavouriteList(favList)
-        }
-        // had problem deleting last entry in favList
-        if(favList && favList.length === 1 && favList[0].defintions.length === 0) {
-         setFavouriteList([])
-        }
-        if(!favList){
-            setFavouriteList([])
-        }
-      }, []);
+  const items = JSON.parse(localStorage.getItem('favouriteList'));
+  if (items) {
+   setFavouriteList(items);
+  }
+}, []);
 
+
+      useEffect(() => {
+        localStorage.setItem('favouriteList',JSON.stringify(favouriteList))
+      }, [favouriteList])
 
     // handles updating of word to be used in search 
     const updateKeyword = (keyword) => {
@@ -88,7 +89,6 @@ const addFavourite = (type ,def, word ) => {
     
    
     setFavouriteList(arrayOfFavs)
-    localStorage.setItem('favouriteList',JSON.stringify(favouriteList))
 }
 
 
@@ -106,7 +106,6 @@ const removeFavourite = (i,j)=>{
     setFavouriteList(arrayOfFavs)
     
     setFavouriteList(arrayOfFavs)
-    localStorage.setItem('favouriteList', JSON.stringify(favouriteList));
 }
 
 
